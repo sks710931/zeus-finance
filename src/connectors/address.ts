@@ -1,1 +1,1 @@
-export const NFTContract = "0xb8a054615369F1dd155C2a69D9Aef04A1352B3a0";
+export const NFTContract = "0x69f13fd71d55e4d09159e2f487d29eaff91ef14b";

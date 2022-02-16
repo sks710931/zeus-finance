@@ -31,7 +31,7 @@ export const Connect = () => {
 }
   return (
     <>
-      <div className={classes.title}>Connect to the Ethereum Network.</div>
+      <div className={classes.title}>Connect to the BSC Network.</div>
       <div style={{ textAlign: "center", paddingTop: "24px" }}>
         <Button
           sx={{
@@ -63,15 +63,6 @@ export const Connect = () => {
               onClick={handleMetamaskClick}
             >
               Metamask
-            </Button>
-            <Button
-              startIcon={<img src={cb} width={35} />}
-              className={classes.btn}
-              fullWidth
-              variant="text"
-              onClick={handleCoinbaseClick}
-            >
-              Coinbase
             </Button>
           </Box>
         </DialogContent>

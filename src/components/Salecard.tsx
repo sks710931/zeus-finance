@@ -17,9 +17,9 @@ export const Salecard = () => {
 
     useEffect(() => {
         const getMints = async () => {
-          const provider = new JsonRpcProvider("https://mainnet.infura.io/v3/f152de7d8bb44f88a54e2731691a7efa");
+          const provider = new JsonRpcProvider("https://bsc-dataseed1.binance.org/");
             const contract = new Contract(NFTContract, abi, provider );
-            contract.on("CreateWizardCreature", async () => {
+            contract.on("CreateNFT", async () => {
                 const mint2 = await contract.totalSupply();
                 setMints(Number(formatUnits(mint2, 0)));
             });
@@ -34,19 +34,19 @@ export const Salecard = () => {
   const classes = UseStyle();
   return (
     <div className={classes.main}>
-      <div className={classes.title}>{mints} / 10000</div>
+      <div className={classes.title}>{mints} / 3331</div>
       <div className={classes.address}>
         <Button
           className={classes.contractButton}
           variant="text"
           color="primary"
           endIcon={<OpenInNewIcon />}
-          onClick={() => window.open(`https://etherscan.io/token/${NFTContract}`, "_blank")}
+          onClick={() => window.open(`https://bscscan.com/token/${NFTContract}`, "_blank")}
         >
           NFT Contract
         </Button>
       </div>
-      <div className={classes.cost}>1 Wizard Creature NFT costs {price} ETH.</div>
+      <div className={classes.cost}>1 Zeus Finance NFT costs {price} BNB.</div>
 
      {!account &&  <Connect />}
       {account && <Buy />}

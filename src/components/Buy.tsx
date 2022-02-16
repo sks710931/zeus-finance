@@ -48,11 +48,10 @@ export const Buy = () => {
           alert(`${value} Wizard creature NFT's minted successfully!`);
         }
       } catch (err: any) {
-        console.log(JSON.stringify(err));
-        if (err.error) {
-          alert(err.error.message);
+        if (err.data) {
+          alert(err.data.message);
         } else {
-          alert("Transaction Error");
+          alert(err.message);
         }
       }
     }
@@ -62,12 +61,8 @@ export const Buy = () => {
       console.log(library);
       const signer = await library?.getSigner();
       const contract = new Contract(NFTContract, abi, signer);
-      const wls = await contract.addressInWhitelist(account);
-      const pp = await contract.presalePrice(1);
       const sp = await contract.salePrice(1);
       setSalePrice(Number(formatUnits(sp, "ether")));
-      setPresalePrice(Number(formatUnits(pp, "ether")));
-      setWhitelisted(wls);
     };
     if (account && library) {
       getMints();
@@ -135,7 +130,7 @@ export const Buy = () => {
           variant="contained"
         >
           {" "}
-          Mint Wizard Creature
+          Mint Zeus Finance NFT
         </Button>
       </div>
     </>
