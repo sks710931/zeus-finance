@@ -69,7 +69,7 @@ export const Buy = () => {
     }
   }, [account, library]);
   const increment = () => {
-    if (value < 5) {
+    if (value < 2) {
       setValue((value) => value + 1);
     }
   };
